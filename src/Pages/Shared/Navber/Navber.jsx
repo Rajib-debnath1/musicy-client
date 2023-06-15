@@ -19,11 +19,15 @@ const Navber = () => {
         <li><Link to="/">Home</Link></li>
         <li><Link>Instructors</Link></li>
         <li><Link>Classes</Link></li>
-        <li><Link to='/dashboard'>Dashboard</Link></li>
+        
 
 
         {
-            user ? <><button onClick={handleLogOut} className="btn btn-ghost">LogOut</button> <img src={user.photoURL} className="rounded-[100%] h-[30px] w-[30px] " /></> : <>
+            user ? <> 
+            <li><Link to='/dashboard'>Dashboard</Link></li>
+             <button onClick={handleLogOut} className="btn btn-ghost">LogOut</button>
+              <img src={user.photoURL} className="rounded-[100%] h-[30px] w-[30px] " />
+              </>   :   <>
                 <li><Link to="/login">Login</Link></li>
             </>
         }

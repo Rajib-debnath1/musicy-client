@@ -1,11 +1,21 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const Login = () => {
 
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [password, setPassword] = useState('');
+
   const { signIn } = useContext(AuthContext);
+
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
 
 
   const handleLogin = event => {
@@ -53,7 +63,18 @@ const Login = () => {
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
-              <input type="password" name="password" placeholder="password" className="input input-bordered" />
+         <div className="password-input">
+         <div className="relative inline-block">
+           <input type={passwordVisible ? 'text' : 'password'} onChange={(e) => setPassword(e.target.value)} name="password" placeholder="password" className="input input-bordered" />
+           <button onClick={togglePasswordVisibility} className="absolute top-[50%] right-[5px] translate-y-[-50%] bg-none border-none p-0 cursor-pointer">
+          <FontAwesomeIcon
+            icon={passwordVisible ? faEyeSlash : faEye}
+            className="text-[#999]"
+          />
+        </button>
+           </div>
+         </div>
+
               <label className="label">
                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
               </label>

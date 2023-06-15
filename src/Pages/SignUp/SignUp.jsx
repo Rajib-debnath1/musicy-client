@@ -116,8 +116,8 @@ const SignUp = () => {
                             </label>
                             <input type="password" placeholder="password" {...register("password",{ required: true,
                                  minLength: 6 ,
-                                //   maxLength: 20,
-                                //   pattern: / (?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
+                                  maxLength: 20,
+                                  pattern: / (?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
                                   })} name="password" className="input input-bordered" />
                             {errors.password?.type === 'required' && <p className="text-red-600">Password is required</p>}
                             {errors.password?.type === 'minLength' && <p className="text-red-600">password will be geter than 6 chracters!!</p>}
