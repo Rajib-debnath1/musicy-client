@@ -1,1 +1,1 @@
-export const MainApi = "https://musicy-server.vercel.app"
+export const MainApi = "http://localhost:5000"
