@@ -12,7 +12,7 @@ const Login = () => {
 
 
 
-    
+    const [error, setError] = useState('')
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const {signIn} = useContext(AuthContext);

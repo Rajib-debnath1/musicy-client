@@ -1,5 +1,6 @@
 import ExtraSection from "../../ExtraSection";
 import Banner from "../Banner/Banner";
+import PopularInstructor from "../PopularInstructor";
 import PopulerClasses from "../PopulerClasses/PopulerClasses";
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
         <div>
         <Banner></Banner>
         <PopulerClasses></PopulerClasses>
+        <PopularInstructor></PopularInstructor>
         <ExtraSection></ExtraSection>
         </div>
     );

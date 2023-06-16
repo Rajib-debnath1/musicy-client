@@ -9,7 +9,7 @@ const ExtraSection = () => {
     <h2 className="card-title">Best Musiq Learning</h2>
     <p>We are providing best Instructor and Music service to use </p>
     <div className="card-actions justify-end">
-        <h3>For Best Choice</h3>
+        <h3 className="text-2xl font-semibold">:::For Best Choice ::::</h3>
       <Link to="/signup" className="btn btn-primary">Sign UP</Link>
     </div>
   </div>

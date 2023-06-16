@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext} from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
@@ -11,7 +11,7 @@ import { MainApi } from "../Shared/MainApi";
 const SignUp = () => {
     const navigate= useNavigate()
 
-    const [error, setError] =useState('');
+    // const [error, setError] =useState('');
 
     
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -41,7 +41,7 @@ const SignUp = () => {
 
             saveUser({email: user.email, name:user.displayName,img:user?.photoURL})
         }).catch(er=>{
-            setError(er)
+            // setError(er)
             console.log(er);
         })
         console.log(googleSign,"and","click hoiche");
@@ -118,11 +118,11 @@ const SignUp = () => {
                                 <span className="label-text">Password</span>
                             </label>
                             <input type="password" placeholder="password" {...register("password",
-                            // { required: true,
-                            //      minLength: 6 ,
-                            //       maxLength: 20,
-                            //       pattern: / (?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
-                            //       }
+                            { required: true,
+                                 minLength: 6 ,
+                                  maxLength: 20,
+                                  pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
+                                  }
                                   )} name="password" className="input input-bordered" />
                             {errors.password?.type === 'required' && <p className="text-red-600">Password is required</p>}
                             {errors.password?.type === 'minLength' && <p className="text-red-600">password will be geter than 6 chracters!!</p>}

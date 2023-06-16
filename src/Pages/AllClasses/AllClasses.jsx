@@ -74,8 +74,8 @@ return (
           `}>
         <img  src={data?.img} className="w-[300px] h-[150px] mx-auto" alt="" />
         <h2>{data?.name}</h2>
-        <button  disabled={data?.seats === "0" || roleData !=="student" && true} onClick={()=>handleSelect(data)} className={`py-2 bg-blue-500  text-white font-bold px-3 
-        rounded-xl  my-2 ${data?.seats<1 || roleData !=="student" ? "disabled bg-slate-700 cursor-not-allowed":""}
+        <button  disabled={data?.seats === "0" || roleData === ("admin" || "instructor" ) && true} onClick={()=>handleSelect(data)} className={`py-2 bg-blue-500  text-white font-bold px-3 
+        rounded-xl  my-2 ${data?.seats <1 || roleData === ("admin" || "instructor" )? "disabled bg-slate-700 cursor-not-allowed":""}
 
         `}>Select</button>
 
