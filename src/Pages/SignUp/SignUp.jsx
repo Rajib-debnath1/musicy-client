@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
 import Swal from 'sweetalert2'
 import { MainApi } from "../Shared/MainApi";
@@ -9,6 +9,7 @@ import { MainApi } from "../Shared/MainApi";
 
 
 const SignUp = () => {
+    const navigate= useNavigate()
 
     const [error, setError] =useState('');
 
@@ -68,6 +69,8 @@ const SignUp = () => {
                 showConfirmButton: false,
                 timer: 1500
               })
+              navigate('/')
+
         })
 
     }

@@ -33,6 +33,7 @@ const DashBoardLayout = () => {
       {roleData === "admin" &&
       <>
       <li><Link to='/dashboard/allUsers'>AllUsers {roleData}</Link></li>
+      <li><Link to='/dashboard/manageClass'>Manage Class</Link></li>
       </>
       }
       {roleData === "instructor" &&

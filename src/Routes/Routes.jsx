@@ -14,6 +14,7 @@ import PopulerClasses from "../Pages/Home/PopulerClasses/PopulerClasses";
 import AllClasses from "../Pages/AllClasses/AllClasses";
 import MyClass from "../DashBoard/Student/MyClass";
 import InstructorClass from "../DashBoard/Instructor/InstructorClass";
+import ManageClass from "../DashBoard/Admin/ManageClass";
 
 export const router = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ export const router = createBrowserRouter([
           {
             path: '/dashboard/instructorclass',
             element: <InstructorClass/>
+          },
+          {
+            path: '/dashboard/manageClass',
+            element: <ManageClass/>
           }
         ]
       },

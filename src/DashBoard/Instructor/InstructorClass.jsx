@@ -5,51 +5,32 @@ import { useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import { useContext } from "react";
 import axios from "axios";
+import Modal from "./Modal";
 
 
 const InstructorClass = () => {
-    const {user} = useContext(AuthContext)
-    const [classData,setData] = useState({})
-    
-    const [refresh,setrefresh] = useState(true)
-    
+    const { user } = useContext(AuthContext)
+    const [classData, setData] = useState({})
 
-   useEffect(() => {
-    // Perform the data fetch
-  
-    axios.get(`${MainApi}/instructorclass/${user?.email}`).then((data) => {
-       //   console.log(data.data);
-       setData(data.data);
-     });
-  
-  }, [user?.email,refresh]);
+    const [refresh, setrefresh] = useState(true)
+    const [close, setClose] = useState(true)
 
 
-console.log(classData,"clasData");
+    useEffect(() => {
+        // Perform the data fetch
 
-    const deleteHandler= (data) => {
-       
+        axios.get(`${MainApi}/instructorclass/${user?.email}`).then((data) => {
+            //   console.log(data.data);
+            setData(data.data);
+        });
+   
 
-        fetch(`${MainApi}/deleteClass`, {
-            method: 'DELETE',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-            .then(res => res.json())
-            .then(result => {
-                console.log(result, '');
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Your work has been saved',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-               setrefresh(change=>!change)
-            })
-    }
+    }, [user?.email, refresh]);
+
+
+    console.log(classData, "clasData");
+
+
 
     return (
         <div className="w-full">
@@ -63,12 +44,24 @@ console.log(classData,"clasData");
                         >
                             <img className="h-[80px] w-[200px] mx-auto " src={classs?.img} alt="" />
                             <div>
-                                <p>{classs.name}</p>
-                                <p>{classs.email}</p>
-                                <p>Role :{classs?.role}</p>
+                                <p>Name:{classs.name}</p>
+                                <p>Email:{classs.email}</p>
+                                <p>Price:{classs.price}</p>
+                                <p>Status:  {classs?.status}</p>
+                                <p>Total Enrolled : 0 </p>
+                                <p>FeedBack : {classs?.feedback}</p>
                             </div>
+                            {/* modal */}
                             <div className="">
-                               <button onClick={()=>deleteHandler(classs)} className="bg-red-600 p-2">Delete </button>
+                                <label htmlFor={classs.name} className="btn">open modal</label>
+
+
+
+                                <Modal allData={classs} modal={classs.name} setrefresh={setrefresh} setClose={setClose}
+                                    
+                                    />
+
+
                             </div>
                         </aside>
                     })
