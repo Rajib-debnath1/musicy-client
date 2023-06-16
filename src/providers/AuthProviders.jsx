@@ -10,6 +10,8 @@ const auth = getAuth(app);
 
 const AuthProviders = ({children}) => {
 
+    const [mode, setMode] = useState(false)
+
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -71,7 +73,9 @@ const AuthProviders = ({children}) => {
         signIn,
         logOut,
         googleSign,
-        roleData
+        roleData,
+        mode, 
+        setMode
     }
 
     return (
