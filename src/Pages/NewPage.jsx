@@ -2,6 +2,17 @@ import React from 'react';
 
 const NewPage = () => {
     const {mode} = useContext(AuthContext)
+
+    
+    useEffect(() => {
+        // Perform the data fetch
+
+        axios.get(`${MainApi}/allinstructor`).then((data) => {
+            //   console.log(data.data);
+            setData(data.data);
+        });
+
+    }, []);
     return (
         <div>
              <section className="grid grid-cols-1 lg:grid-cols-2 mt-10"> 
