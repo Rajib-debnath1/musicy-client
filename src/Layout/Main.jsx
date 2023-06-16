@@ -6,7 +6,9 @@ const Main = () => {
     return (
         <div>
             <Navber></Navber>
+           <div className="mt-[5rem]">
             <Outlet></Outlet>
+           </div>
             <Footer></Footer>
         </div>
     );

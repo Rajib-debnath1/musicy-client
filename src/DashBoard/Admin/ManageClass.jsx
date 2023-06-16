@@ -68,7 +68,7 @@ const handleButton = (type,data)=>{
 
     return (
         <div className="w-full">
-            <h2>My Class</h2>
+            <h2 className="font-bold text-center">ALL Class</h2>
             <section className="grid grid-cols-1 gap-2 ">
                 {classData?.length &&
                     classData?.map((classs, index) => {

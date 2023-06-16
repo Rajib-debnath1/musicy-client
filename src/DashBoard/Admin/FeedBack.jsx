@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import { MainApi } from "../../Pages/Shared/MainApi";
 
 
 const FeedBack = ({modal,classData,setrefresh}) => {
@@ -9,7 +10,7 @@ const FeedBack = ({modal,classData,setrefresh}) => {
         console.log(data,classData);
         const newData = {...data,...classData}
 
-        fetch('http://localhost:5000/feedback', {
+        fetch(`${MainApi}/feedback`, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json'

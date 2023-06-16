@@ -15,6 +15,7 @@ import AllClasses from "../Pages/AllClasses/AllClasses";
 import MyClass from "../DashBoard/Student/MyClass";
 import InstructorClass from "../DashBoard/Instructor/InstructorClass";
 import ManageClass from "../DashBoard/Admin/ManageClass";
+import InstractorPages from "../Pages/InstractorPages";
 
 export const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
       {
         path: '/allClasses',
         element: <AllClasses></AllClasses>
+      },
+      {
+        path: '/instructor',
+        element: <InstractorPages></InstractorPages>
       },
       {
         path: '/dashboard',

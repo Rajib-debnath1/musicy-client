@@ -11,7 +11,7 @@ const {name,img,seats,price} = allData
     const onSubmit=data=>{
         console.log(data);
 
-        fetch('http://localhost:5000/updateClass', {
+        fetch(`${MainApi}/updateClass`, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json'
