@@ -4,7 +4,7 @@ const NewPage = () => {
     const {mode} = useContext(AuthContext)
     return (
         <div>
-            
+            <ExtraSection></ExtraSection>
         </div>
     );
 };
