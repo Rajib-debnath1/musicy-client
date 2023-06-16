@@ -2,6 +2,7 @@
 import { createContext, useEffect, useState } from "react";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
+import { MainApi } from "../Pages/Shared/MainApi";
 
 export const AuthContext = createContext(null);
 
@@ -51,6 +52,17 @@ const AuthProviders = ({children}) => {
         }
     },[])
 
+
+    const [roleData,setRoleData] = useState("")
+
+    useEffect(()=>{
+        fetch(`${MainApi}/checkRole/${user?.email}`)
+        .then(res=>res.json())
+        .then(data=>setRoleData(data?.role))
+    },[user?.email])
+
+    console.log(roleData, 'role data from check role');
+
     const authInfo = {
 
         user,
@@ -58,7 +70,8 @@ const AuthProviders = ({children}) => {
         createUser,
         signIn,
         logOut,
-        googleSign
+        googleSign,
+        roleData
     }
 
     return (

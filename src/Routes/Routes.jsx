@@ -10,6 +10,10 @@ import DashBoardLayout from "../Layout/DashBoardLayout";
 import DashBoard from "../DashBoard/DashBoard";
 import AllUsers from "../DashBoard/Admin/AllUsers";
 import AddClasses from "../DashBoard/Instructor/AddClasses";
+import PopulerClasses from "../Pages/Home/PopulerClasses/PopulerClasses";
+import AllClasses from "../Pages/AllClasses/AllClasses";
+import MyClass from "../DashBoard/Student/MyClass";
+import InstructorClass from "../DashBoard/Instructor/InstructorClass";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +32,11 @@ export const router = createBrowserRouter([
         path: '/signup',
         element: <SignUp></SignUp>
       },
+
+      {
+        path: '/allClasses',
+        element: <AllClasses></AllClasses>
+      },
       {
         path: '/dashboard',
         element: <DashBoardLayout></DashBoardLayout>,
@@ -43,6 +52,14 @@ export const router = createBrowserRouter([
           {
             path: '/dashboard/addclasses',
             element: <AddClasses/>
+          },
+          {
+            path: '/dashboard/myclass',
+            element: <MyClass></MyClass>
+          },
+          {
+            path: '/dashboard/instructorclass',
+            element: <InstructorClass/>
           }
         ]
       },

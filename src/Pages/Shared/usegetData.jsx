@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-const useGetToyData = url =>{
+const useGetData = url =>{
     const [toy, setToy] = useState({})
     const [refresh,setRefresh] = useState(null)
 
@@ -23,4 +23,4 @@ const useGetToyData = url =>{
     }
 }
 
-export default useGetToyData
+export default useGetData

@@ -9,12 +9,13 @@ const AddClasses = () => {
     const {user} = useContext(AuthContext)
     // console.log(user);
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } ,reset} = useForm();
 
 
     const onSubmit = data =>{ 
         data.email=user?.email;
         data.instructor = user?.displayName || "Rajib";
+        data.status="pending"
         
         console.log(data);
 
@@ -35,11 +36,10 @@ const AddClasses = () => {
                 showConfirmButton: false,
                 timer: 1500
               })
+              reset()
+              
         })
         
-
-      
-       
     };
 
 

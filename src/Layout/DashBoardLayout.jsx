@@ -7,20 +7,11 @@ import { MainApi } from "../Pages/Shared/MainApi";
 
 const DashBoardLayout = () => {
 
-    const {user} = useContext(AuthContext);
-    console.log(user?.email,"user in dHS");
+    const {user,roleData} = useContext(AuthContext);
+    // console.log(user?.email,"user in dHS");
 
 
-    // const {data:role} = useGetData();
-    const [roleData,setRoleData] = useState("")
-
-    useEffect(()=>{
-        fetch(`${MainApi}/checkRole/${user?.email}`)
-        .then(res=>res.json())
-        .then(data=>setRoleData(data))
-    },[user?.email])
-
-    console.log(roleData, 'role data from check role');
+    //
 
     return (
         <div className="drawer lg:drawer-open  mt-[4.1rem] lg:mt-[4.9rem]">
@@ -37,20 +28,26 @@ const DashBoardLayout = () => {
     <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
       {/* Sidebar content here */}
 
-      {roleData?.role === "admin" &&
+      <h3 className="text-2xl font-bold">Dashboard Items</h3>
+
+      {roleData === "admin" &&
       <>
-      <li><Link to='/dashboard/allUsers'>AllUsers {roleData?.role}</Link></li>
+      <li><Link to='/dashboard/allUsers'>AllUsers {roleData}</Link></li>
       </>
       }
-      {roleData?.role === "instructor" &&
+      {roleData === "instructor" &&
       <>
-      <li><Link to='/dashboard/allUsers'>AllUsers {roleData?.role}</Link></li>
+ 
+      <li><Link to='/dashboard/addclasses'>Add Class </Link></li>
+      <li><Link to='/dashboard/instructorclass'>My Class </Link></li>
       </>
-
       }
-      
+      {roleData === "student" &&
+      <>
+      <li><Link to='/dashboard/myclass'>MyClass {roleData}</Link></li>
+      </>
+      }
 
-      <li><a>Sidebar Item 2</a></li>
     </ul>
   </div>
 </div>

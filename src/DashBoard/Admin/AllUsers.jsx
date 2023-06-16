@@ -1,10 +1,31 @@
 import Swal from "sweetalert2";
 import useGetData from "../../Pages/Shared/usegetData";
 import { MainApi } from "../../Pages/Shared/MainApi";
+import { useState } from "react";
+import { useEffect } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProviders";
 
 const AllUsers = () => {
-    const { data : allUserData, refetch  } = useGetData(`${MainApi}/allUsers`)
-    console.log(allUserData,"allUser");
+    const {roleData} = useContext(AuthContext)
+   const [data,setData] = useState([])
+   const [refresh,setrefresh] = useState(false)
+   
+   useEffect(() => {
+    // Perform the data fetch
+    fetch(`${MainApi}/allUsers`)
+      .then(res => res.json())
+      .then(data => {
+        setData(data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  
+    
+  }, [refresh]);
+
+    // console.log(data,"allUser");
 
     const makeAdmin = (id, role) => {
         const data = { id, role }
@@ -26,16 +47,16 @@ const AllUsers = () => {
                     showConfirmButton: false,
                     timer: 1500
                 })
-                refetch()
+                setrefresh(change=>!change)
             })
     }
 
     return (
         <div>
-            <h2>all users</h2>
+            <h2 className="text-xl font-bold">all users</h2>
             <section className="grid grid-cols-1 gap-5">
-                {
-                    allUserData?.map((user, index) => {
+                {roleData==='admin'&&
+                    data?.map((user, index) => {
                         return <aside
                             key={index}
                             className="flex justify-between items-center w-full"
