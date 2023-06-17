@@ -4,7 +4,7 @@
 
 ## Add my site: 
 
-        * 1 * It is based on school site .
+        * 1 * It is based on music school site .
 
         * 2 * This site provide different kinds of class in music 
 
