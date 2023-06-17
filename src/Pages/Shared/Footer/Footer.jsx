@@ -5,7 +5,7 @@ const Footer = () => {
             <div className="footer p-10 bg-neutral text-neutral-content">
                 <div>
                     <img className="w-[100px] h-[60px]" src="https://templatekit.jegtheme.com/musicy/wp-content/uploads/sites/121/2021/07/logo-2.png" alt="" />
-                    <p>ACME Industries Ltd.<br />Providing reliable tech since 1992</p>
+                    <p>Providing reliable instrument since 2010</p>
                 </div>
                 <div>
                     <span className="footer-title">Social</span>
@@ -15,10 +15,14 @@ const Footer = () => {
                         <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg></a>
                     </div>
                 </div>
+                <div className="footer-title">
+                    <h2>Address</h2>
+                    <p> Mirpur-10, Dhaka , Bangladesh</p>
+                </div>
             </div>
             <div className="p-4 footer-center bg-base-300 text-base-content">
                     <div>
-                        <p>Copyright © 2023 - All right reserved by ACME Industries Ltd</p>
+                        <p>Copyright © 2023 - All right reserved by Musicy</p>
                     </div>
                 </div>
         </footer>
