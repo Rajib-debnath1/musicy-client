@@ -3,14 +3,13 @@
 import  { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../Providers/AuthProvider';
-import { Spinner } from 'react-bootstrap';
 
 const PrivetRoute = ({children}) => {
     const {user,loading} = useContext(AuthContext);
     const location = useLocation();
     console.log(location)
     if(loading){
-        return <Spinner animation="border" variant="primary" />
+        return <div className="radial-progress text-primary" style={{"--value":70}}>70%</div>
     }
 
     if(user){

@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { useQuery } from 'react-query';
+
 import { MainApi } from '../Shared/MainApi';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const PopularInstructor = () => {
@@ -28,7 +27,8 @@ const PopularInstructor = () => {
         <div key={data._id}>
           <div className="flex flex-col justify-center items-center">
         <img  src={data.img} className="w-[300px] h-[150px] mx-auto" alt="" />
-        <h2>{data.name}</h2>
+        <h2>Name: {data.name}</h2>
+        <h2>Our {data.role}</h2>
 
        
 

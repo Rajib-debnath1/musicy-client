@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProviders";
+import { FaSun, FaMoon } from 'react-icons/fa';
 
 const Navber = () => {
 
@@ -17,23 +18,23 @@ const Navber = () => {
 
     const navOptions = <>
 
-<li className="font-bold text-2xl ">
-        {mode ? <p onClick={() => setMode(!mode)}>
-                                <h1> Dark Mode </h1>
-                            </p>
-                                :
-                                <div onClick={() => setMode(!mode)}>
-                                    <h1>Light Mode</h1>
-                                </div>
+        <li className="font-bold mr-15 ">
+            {mode ? <p onClick={() => setMode(!mode)}>
+                <FaMoon />
+            </p>
+                :
+                <div onClick={() => setMode(!mode)}>
+                    <FaSun />
+                </div>
 
-                            }
+            }
         </li>
 
         <li><Link to="/">Home</Link></li>
         <li><Link to='/instructor'>Instructors</Link></li>
         <li><Link to='/allClasses'>Classes</Link></li>
 
-    
+
 
 
 
@@ -60,7 +61,7 @@ const Navber = () => {
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
 
-                          
+
 
 
                         </label>
